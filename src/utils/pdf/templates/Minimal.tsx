@@ -1,3 +1,84 @@
+import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
+import type { ResumeData } from '../../../types';
+
+const styles = StyleSheet.create({
+    page: {
+        padding: 40, // Increased padding
+        fontFamily: 'Helvetica',
+        fontSize: 11,
+        lineHeight: 1.6, // Increased line height
+    },
+    header: {
+        marginBottom: 30, // Increased margin
+        borderBottom: '1px solid #000',
+        paddingBottom: 20, // Increased padding
+        alignItems: 'center',
+    },
+    name: {
+        fontSize: 28, // Slightly larger
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        marginBottom: 12, // Increased margin
+    },
+    contact: {
+        fontSize: 10,
+        color: '#666',
+        flexDirection: 'row',
+        gap: 15, // Increased gap
+    },
+    section: {
+        marginBottom: 25, // Increased margin between sections
+    },
+    sectionTitle: {
+        fontSize: 14,
+        fontWeight: 'bold',
+        textTransform: 'uppercase',
+        marginBottom: 12, // Increased margin
+        borderBottom: '1px solid #eee',
+        paddingBottom: 5, // Increased padding
+    },
+    experienceItem: {
+        marginBottom: 15,
+    },
+    jobHeader: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        marginBottom: 4,
+    },
+    role: {
+        fontWeight: 'bold',
+        fontSize: 12,
+    },
+    company: {
+        fontStyle: 'italic',
+        marginBottom: 4,
+    },
+    date: {
+        fontSize: 10,
+        color: '#666',
+    },
+    description: {
+        marginTop: 4,
+        textAlign: 'justify',
+    },
+    skillItem: {
+        marginRight: 10,
+        backgroundColor: '#eee',
+        padding: '4 8', // Increased padding
+        borderRadius: 4,
+        fontSize: 10,
+    },
+    skillsContainer: {
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        gap: 8, // Increased gap
+    },
+});
+
+interface TemplateProps {
+    data: ResumeData;
+}
+
 export const MinimalTemplate = ({ data }: TemplateProps) => (
     <Document>
         <Page size="A4" style={styles.page}>
